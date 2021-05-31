@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 let data = [
   {
@@ -22,18 +22,24 @@ let data = [
 ];
 
 const Task2 = () => {
+  const [selectedItem, setSelectedItem] = useState(false);
+
   const handleChange = (e, key) => {
     // console.log(key);
     // console.log(e.target.value);
     const selected = data.find((data) => data.activityName === e.target.value);
     selected[key] = !selected[key];
+    setSelectedItem(selected[key]);
+
     console.log(selected);
+    console.log(selectedItem);
   };
+  console.log(data);
   return (
     <>
-      <section className="mt-5 container">
+      <section className="container">
         <h1 className="text-center">Task 2</h1>
-        <div className="w-75 mt-5">
+        <div className="mt-5 table-sm-responsive">
           <table className="table table-striped table-bordered">
             <thead className="table-success">
               <th>moduleName</th>
@@ -57,6 +63,7 @@ const Task2 = () => {
                         type="checkbox"
                         value={data.activityName}
                       />{" "}
+                      = {data.isCreate.toString()}
                     </td>
                     <td>
                       <input
@@ -65,6 +72,7 @@ const Task2 = () => {
                         type="checkbox"
                         value={data.activityName}
                       />{" "}
+                      = {data.isView.toString()}
                     </td>
                     <td>
                       <input
@@ -73,6 +81,7 @@ const Task2 = () => {
                         value={data.activityName}
                         onChange={(e) => handleChange(e, "isEdit")}
                       />{" "}
+                      = {data.isEdit.toString()}
                     </td>
                     <td>
                       <input
@@ -81,6 +90,7 @@ const Task2 = () => {
                         type="checkbox"
                         value={data.activityName}
                       />{" "}
+                      = {data.isDelete.toString()}
                     </td>
                     <td>
                       <input
@@ -89,6 +99,7 @@ const Task2 = () => {
                         type="checkbox"
                         value={data.activityName}
                       />{" "}
+                      = {data.isApprove.toString()}
                     </td>
                   </tr>
                 </>
