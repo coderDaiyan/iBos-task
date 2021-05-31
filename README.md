@@ -1,3 +1,3 @@
 # Live Site
 
-[Click Here](https://facebook.github.io/create-react-app/docs/deployment).
+[Click Here](https://ibos-task-daiyan.netlify.app/).
