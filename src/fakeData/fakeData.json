@@ -1,0 +1,56 @@
+[
+  {
+    "moduleName": "Configuration",
+    "activityName": "Item Category",
+    "isCreate": false,
+    "isView": false,
+    "isEdit": false,
+    "isDelete": false,
+    "isApprove": false
+  },
+  {
+    "moduleName": "Configuration",
+    "activityName": "Item",
+    "isCreate": false,
+    "isView": false,
+    "isEdit": false,
+    "isDelete": false,
+    "isApprove": false
+  },
+  {
+    "moduleName": "Configuration",
+    "activityName": "Auto Repair",
+    "isCreate": false,
+    "isView": false,
+    "isEdit": false,
+    "isDelete": false,
+    "isApprove": false
+  },
+  {
+    "moduleName": "Configuration",
+    "activityName": "Profile",
+    "isCreate": false,
+    "isView": false,
+    "isEdit": false,
+    "isDelete": false,
+    "isApprove": false
+  },
+  {
+    "moduleName": "Configuration",
+    "activityName": "Bank Account",
+    "isCreate": false,
+    "isView": false,
+    "isEdit": false,
+    "isDelete": false,
+    "isApprove": false
+  },
+  {
+    "moduleName": "Purchase",
+    "activityName": "Udemy Course",
+    "isCreate": false,
+    "isView": false,
+    "isEdit": false,
+    "isDelete": false,
+    "isApprove": false
+  }
+]

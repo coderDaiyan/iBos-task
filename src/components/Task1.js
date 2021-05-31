@@ -23,7 +23,7 @@ const Task1 = () => {
   const state = useSelector((data) => data.userData);
   console.log(state);
   return (
-    <section className="container">
+    <section style={{ marginBottom: "150px" }} className="container">
       <h1 className="mt-3 mb-5 text-center">Task 1</h1>
       <div className="d-flex justify-content-center align-items-center flex-column">
         <div className="">

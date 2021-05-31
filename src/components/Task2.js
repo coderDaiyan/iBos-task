@@ -1,105 +1,96 @@
 import React, { useState } from "react";
-
-let data = [
-  {
-    moduleName: "Configuration",
-    activityName: "Item Category",
-    isCreate: false,
-    isView: false,
-    isEdit: false,
-    isDelete: false,
-    isApprove: false,
-  },
-  {
-    moduleName: "Configuration",
-    activityName: "Item",
-    isCreate: false,
-    isView: false,
-    isEdit: false,
-    isDelete: false,
-    isApprove: false,
-  },
-];
+import fakeData from "../fakeData/fakeData.json";
 
 const Task2 = () => {
-  const [selectedItem, setSelectedItem] = useState(false);
+  const [allData, setAllData] = useState(fakeData);
 
-  const handleChange = (e, key) => {
-    // console.log(key);
-    // console.log(e.target.value);
-    const selected = data.find((data) => data.activityName === e.target.value);
-    selected[key] = !selected[key];
-    setSelectedItem(selected[key]);
-
-    console.log(selected);
-    console.log(selectedItem);
+  const handleChange = (name, e) => {
+    let newData = [];
+    allData.map((data) => {
+      if (data.activityName === name) {
+        const newItem = { ...data };
+        newItem[e.target.name] = e.target.checked;
+        newData.push(newItem);
+      } else {
+        newData.push(data);
+      }
+    });
+    setAllData(newData);
   };
-  console.log(data);
   return (
     <>
       <section className="container">
         <h1 className="text-center">Task 2</h1>
-        <div className="mt-5 table-sm-responsive">
-          <table className="table table-striped table-bordered">
+        <div className="mt-5">
+          <table className="table table-striped table-bordered table-success">
             <thead className="table-success">
-              <th>moduleName</th>
-              <th>activityName</th>
-              <th>isCreate</th>
-              <th>isView</th>
-              <th>isEdit</th>
-              <th>isDelete</th>
-              <th>isApprove</th>
+              <th className="p-2" colSpan="4">
+                moduleName
+              </th>
+              <th className="p-2" colSpan="4">
+                activityName
+              </th>
+              <th className="p-2">Create</th>
+              <th className="p-2">View</th>
+              <th className="p-2">Edit</th>
+              <th className="p-2">Delete</th>
+              <th className="p-2">Approve</th>
             </thead>
             <tbody>
-              {data.map((data) => (
+              {allData.map((data) => (
                 <>
                   <tr>
-                    <td>{data.moduleName}</td>
-                    <td>{data.activityName}</td>
+                    <td colSpan="4">{data.moduleName}</td>
+                    <td colSpan="4">{data.activityName}</td>
                     <td>
                       <input
-                        onChange={(e) => handleChange(e, "isCreate")}
-                        class="form-check-input"
                         type="checkbox"
-                        value={data.activityName}
+                        className="form-check-input"
+                        name="isCreate"
+                        checked={data.isCreate}
+                        onChange={(e) => handleChange(data.activityName, e)}
                       />{" "}
-                      = {data.isCreate.toString()}
+                      ({data.isCreate.toString()})
                     </td>
                     <td>
                       <input
-                        onChange={(e) => handleChange(e, "isView")}
-                        class="form-check-input"
                         type="checkbox"
-                        value={data.activityName}
+                        className="form-check-input"
+                        name="isView"
+                        checked={data.isView}
+                        onChange={(e) => handleChange(data.activityName, e)}
                       />{" "}
-                      = {data.isView.toString()}
+                      ({data.isView.toString()})
                     </td>
                     <td>
                       <input
-                        class="form-check-input"
                         type="checkbox"
-                        value={data.activityName}
-                        onChange={(e) => handleChange(e, "isEdit")}
+                        className="form-check-input"
+                        name="isEdit"
+                        checked={data.isEdit}
+                        onChange={(e) => handleChange(data.activityName, e)}
                       />{" "}
-                      = {data.isEdit.toString()}
+                      ({data.isEdit.toString()})
                     </td>
                     <td>
                       <input
-                        onChange={(e) => handleChange(e, "isDelete")}
-                        class="form-check-input"
                         type="checkbox"
-                        value={data.activityName}
+                        className="form-check-input"
+                        name="isDelete"
+                        checked={data.isDelete}
+                        onChange={(e) => handleChange(data.activityName, e)}
                       />{" "}
-                      = {data.isDelete.toString()}
+                      ({data.isDelete.toString()})
                     </td>
                     <td>
                       <input
-                        onChange={(e) => handleChange(e, "isApprove")}
-                        class="form-check-input"
                         type="checkbox"
-                        value={data.activityName}
+                        className="form-check-input"
+                        name="isApprove"
+                        checked={data.isApprove}
+                        onChange={(e) => handleChange(data.activityName, e)}
                       />{" "}
-                      = {data.isApprove.toString()}
+                      ({data.isApprove.toString()})
                     </td>
                   </tr>
                 </>
